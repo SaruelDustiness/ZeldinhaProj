@@ -42,6 +42,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 	
 	public List<Entity> entities;
 	public static Spritesheet spritesheet;
+	public static Spritesheet atkdie;
 	
 	private Player player;
 	
@@ -55,6 +56,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		entities = new ArrayList<Entity>();
 		spritesheet = new Spritesheet("/spritesheet.png");
+		atkdie = new Spritesheet("/atkdie.png");
 		
 		player = new Player(0, 0, 16, 16, spritesheet.getSprite(70, 0, 23, 23));
 		entities.add(player);
@@ -182,7 +184,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_F) {
-			
+			player.atk = true;
 		}
 		
 		if(e.getKeyCode() == KeyEvent.VK_E) {
